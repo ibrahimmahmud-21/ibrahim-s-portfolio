@@ -25,20 +25,23 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-foreground text-center mb-12">Experience</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <section id="experience" className="py-16 sm:py-20 px-5 sm:px-8">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10">
+          <p className="text-xs font-semibold tracking-widest text-accent uppercase mb-2">What I Do</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">Experience</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {experiences.map((exp) => (
             <div
               key={exp.title}
-              className="group p-6 rounded-2xl bg-card border border-border shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1"
+              className="group p-5 sm:p-6 rounded-2xl bg-card border border-border shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-0.5"
             >
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                <exp.icon size={22} className="text-accent" />
+              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3 group-hover:bg-accent/20 transition-colors">
+                <exp.icon size={20} className="text-accent" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{exp.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
+              <h3 className="text-[15px] font-bold text-foreground mb-1.5">{exp.title}</h3>
+              <p className="text-muted-foreground text-[13px] leading-relaxed">{exp.description}</p>
             </div>
           ))}
         </div>
