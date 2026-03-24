@@ -21,9 +21,9 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <a
             href="#home"
-            className="w-10 h-10 rounded-full bg-primary flex items-center justify-center select-none"
+            className="w-10 h-10 rounded-full bg-primary flex items-center justify-center select-none shadow-md hover:shadow-lg transition-shadow duration-200"
           >
-            <span className="text-sm font-bold text-primary-foreground tracking-tight">IM</span>
+            <span className="text-[13px] font-extrabold text-primary-foreground tracking-wide">IM</span>
           </a>
           <div className="hidden sm:flex flex-col">
             <span className="text-xs text-muted-foreground flex items-center gap-1">
