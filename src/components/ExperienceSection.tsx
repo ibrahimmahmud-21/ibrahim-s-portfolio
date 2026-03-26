@@ -30,21 +30,21 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-24 md:py-32 px-6 sm:px-10 lg:px-20">
       <div ref={ref} className={`max-w-6xl mx-auto ${className}`}>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-14">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-10">
           Working experience
         </h2>
-        <div className="divide-y divide-border">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {experiences.map((exp) => (
             <div
               key={exp.title}
-              className="stagger-child group flex items-start gap-4 py-5 hover:bg-secondary/30 -mx-4 px-4 rounded-xl transition-all duration-300 cursor-default"
+              className="stagger-child card-lift group flex items-start gap-3 p-4 rounded-xl bg-card border border-border cursor-default"
             >
-              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent/10 transition-colors duration-300">
-                <exp.icon size={17} className="text-foreground group-hover:text-accent transition-colors duration-300" />
+              <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors duration-300">
+                <exp.icon size={16} className="text-foreground group-hover:text-accent transition-colors duration-300" />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-semibold text-foreground">{exp.title}</h3>
-                <p className="text-muted-foreground text-sm mt-0.5">{exp.detail}</p>
+                <h3 className="text-[13px] font-semibold text-foreground leading-tight">{exp.title}</h3>
+                <p className="text-muted-foreground text-xs mt-0.5 leading-snug">{exp.detail}</p>
               </div>
             </div>
           ))}
