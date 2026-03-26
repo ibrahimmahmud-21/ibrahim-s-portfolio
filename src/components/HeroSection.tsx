@@ -2,14 +2,11 @@ import profileImage from "@/assets/profile.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const HeroSection = () => {
-  const { ref, isVisible } = useScrollAnimation(0.1);
+  const { ref, className } = useScrollAnimation(0.1);
 
   return (
     <section id="home" className="pt-28 pb-24 md:pt-36 md:pb-32 px-6 sm:px-10 lg:px-20">
-      <div
-        ref={ref}
-        className={`max-w-6xl mx-auto scroll-fade ${isVisible ? "visible" : ""}`}
-      >
+      <div ref={ref} className={`max-w-6xl mx-auto ${className}`}>
         <div className="w-12 h-12 rounded-full overflow-hidden shadow-soft mb-8 profile-pulse">
           <img
             id="profileImage"
