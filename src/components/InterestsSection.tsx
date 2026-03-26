@@ -9,14 +9,11 @@ const interests = [
 ];
 
 const InterestsSection = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, className } = useScrollAnimation();
 
   return (
     <section id="interests" className="py-24 md:py-32 px-6 sm:px-10 lg:px-20 bg-secondary/40">
-      <div
-        ref={ref}
-        className={`max-w-6xl mx-auto scroll-fade ${isVisible ? "visible" : ""}`}
-      >
+      <div ref={ref} className={`max-w-6xl mx-auto ${className}`}>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-14">
           Interests
         </h2>
