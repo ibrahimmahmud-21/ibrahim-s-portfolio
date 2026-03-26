@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,51 +8,33 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 8%;
-
     --card: 0 0% 98%;
     --card-foreground: 0 0% 8%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
-
     --primary: 0 0% 8%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 8%;
-
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
-
     --accent: 142 60% 45%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 0 0% 90%;
     --input: 0 0% 90%;
     --ring: 0 0% 8%;
-
     --radius: 0.75rem;
-
     --shadow-soft: 0 2px 20px -2px hsl(0 0% 0% / 0.06);
     --shadow-card: 0 4px 30px -4px hsl(0 0% 0% / 0.08);
-
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -109,4 +91,15 @@
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
+}
+
+/* Scroll fade-in animation */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
