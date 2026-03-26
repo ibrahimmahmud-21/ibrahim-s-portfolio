@@ -28,6 +28,7 @@
     --radius: 0.75rem;
     --shadow-soft: 0 2px 20px -2px hsl(0 0% 0% / 0.06);
     --shadow-card: 0 4px 30px -4px hsl(0 0% 0% / 0.08);
+    --shadow-elevated: 0 8px 40px -8px hsl(0 0% 0% / 0.12);
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -58,6 +59,9 @@
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 0 0% 80%;
+    --shadow-soft: 0 2px 20px -2px hsl(0 0% 100% / 0.04);
+    --shadow-card: 0 4px 30px -4px hsl(0 0% 100% / 0.06);
+    --shadow-elevated: 0 8px 40px -8px hsl(0 0% 100% / 0.1);
     --sidebar-background: 0 0% 8%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 0 0% 95%;
@@ -91,15 +95,91 @@
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
 }
 
-/* Scroll fade-in animation */
+/* Scroll animations */
 .scroll-fade {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .scroll-fade.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Staggered children animation */
+.scroll-fade.visible > .stagger-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger-child {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-child:nth-child(1) { transition-delay: 0.05s; }
+.stagger-child:nth-child(2) { transition-delay: 0.12s; }
+.stagger-child:nth-child(3) { transition-delay: 0.19s; }
+.stagger-child:nth-child(4) { transition-delay: 0.26s; }
+.stagger-child:nth-child(5) { transition-delay: 0.33s; }
+.stagger-child:nth-child(6) { transition-delay: 0.4s; }
+
+/* Button press effect */
+.btn-press {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, opacity 0.2s ease;
+}
+.btn-press:hover {
+  transform: scale(1.03);
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* Card interactive lift */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Navbar scroll shadow */
+.nav-scrolled {
+  box-shadow: 0 1px 12px -2px hsl(0 0% 0% / 0.08);
+}
+
+/* Link underline animation */
+.link-hover {
+  position: relative;
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: hsl(var(--foreground));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Profile image pulse ring */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.15); }
+  70% { box-shadow: 0 0 0 8px hsl(var(--primary) / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0); }
+}
+.profile-pulse {
+  animation: pulse-ring 2.5s ease-out infinite;
 }

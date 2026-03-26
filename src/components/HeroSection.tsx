@@ -10,7 +10,7 @@ const HeroSection = () => {
         ref={ref}
         className={`max-w-6xl mx-auto scroll-fade ${isVisible ? "visible" : ""}`}
       >
-        <div className="w-12 h-12 rounded-full overflow-hidden shadow-soft mb-8">
+        <div className="w-12 h-12 rounded-full overflow-hidden shadow-soft mb-8 profile-pulse">
           <img
             id="profileImage"
             src={profileImage}
@@ -20,31 +20,31 @@ const HeroSection = () => {
           />
         </div>
 
-        <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl font-black leading-[1.08] tracking-tight text-foreground mb-10">
+        <h1 className="stagger-child text-[2.5rem] sm:text-5xl md:text-6xl font-black leading-[1.08] tracking-tight text-foreground mb-10">
           Hello! I'm Ibrahim
           <br />
           Mahmud
         </h1>
 
-        <p className="text-lg sm:text-xl font-medium text-foreground leading-snug mb-3 max-w-md">
+        <p className="stagger-child text-lg sm:text-xl font-medium text-foreground leading-snug mb-3 max-w-md">
           A tech enthusiast based in Bangladesh.
         </p>
-        <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-10 italic">
+        <p className="stagger-child text-muted-foreground text-sm leading-relaxed max-w-sm mb-10 italic">
           Passionate creating great experiences for
           <br />
           Digital Product
         </p>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="stagger-child flex flex-wrap gap-3">
           <a
             href="#contact"
-            className="inline-flex items-center px-7 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-soft hover:opacity-90 transition-all duration-200 hover:shadow-lg"
+            className="btn-press inline-flex items-center px-7 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-soft hover:shadow-elevated"
           >
             Talk with me
           </a>
           <a
             href="#about"
-            className="inline-flex items-center px-7 py-3 rounded-full border border-border bg-background text-foreground text-sm font-semibold hover:bg-secondary transition-all duration-200"
+            className="btn-press inline-flex items-center px-7 py-3 rounded-full border border-border bg-background text-foreground text-sm font-semibold hover:bg-secondary hover:shadow-soft"
           >
             See my work
           </a>

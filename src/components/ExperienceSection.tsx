@@ -40,10 +40,10 @@ const ExperienceSection = () => {
           {experiences.map((exp) => (
             <div
               key={exp.title}
-              className="group flex items-start gap-4 py-5 hover:bg-secondary/30 -mx-4 px-4 rounded-xl transition-all duration-200"
+              className="stagger-child group flex items-start gap-4 py-5 hover:bg-secondary/30 -mx-4 px-4 rounded-xl transition-all duration-300 cursor-default"
             >
-              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
-                <exp.icon size={17} className="text-foreground" />
+              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent/10 transition-colors duration-300">
+                <exp.icon size={17} className="text-foreground group-hover:text-accent transition-colors duration-300" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-sm font-semibold text-foreground">{exp.title}</h3>
