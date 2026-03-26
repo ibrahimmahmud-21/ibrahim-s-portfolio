@@ -24,10 +24,10 @@ const InterestsSection = () => {
           {interests.map((item) => (
             <div
               key={item.label}
-              className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-card border border-border hover:shadow-card hover:-translate-y-1 transition-all duration-300 cursor-default"
+              className="stagger-child card-lift group flex flex-col items-center gap-3 p-6 rounded-2xl bg-card border border-border cursor-default"
             >
-              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors">
-                <item.icon size={20} className="text-foreground group-hover:text-accent" />
+              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
+                <item.icon size={20} className="text-foreground group-hover:text-accent transition-colors duration-300" />
               </div>
               <span className="text-sm font-semibold text-foreground text-center">{item.label}</span>
             </div>
