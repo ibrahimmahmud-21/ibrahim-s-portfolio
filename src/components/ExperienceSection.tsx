@@ -5,22 +5,22 @@ const experiences = [
   {
     icon: Smartphone,
     title: "Mobile Settings Expert",
-    detail: "Configuring and troubleshooting mobile device settings across platforms.",
+    detail: "Configuring and troubleshooting mobile device settings.",
   },
   {
     icon: MessageCircle,
     title: "Facebook Problem Solving",
-    detail: "Resolving account issues, privacy settings, and platform navigation.",
+    detail: "Resolving account issues and privacy settings.",
   },
   {
     icon: Headphones,
     title: "Tech Support",
-    detail: "Providing technical guidance for software and hardware related issues.",
+    detail: "Technical guidance for software and hardware issues.",
   },
   {
     icon: Code,
     title: "Learning Web Development",
-    detail: "Expanding skills in HTML, CSS, JavaScript and modern frameworks.",
+    detail: "Building skills in HTML, CSS, JS and frameworks.",
   },
 ];
 
@@ -28,23 +28,37 @@ const ExperienceSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.05);
 
   return (
-    <section id="experience" className="py-24 md:py-32 px-6 sm:px-10 lg:px-20">
-      <div ref={ref} className={`max-w-6xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-10">
+    <section id="experience" className="py-20 md:py-28 px-6 sm:px-10 lg:px-20">
+      <div
+        ref={ref}
+        className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
+        <h2 className="text-xl sm:text-2xl font-extrabold text-foreground mb-6">
           Working experience
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {experiences.map((exp) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          {experiences.map((exp, i) => (
             <div
               key={exp.title}
-              className="stagger-child card-lift group flex items-start gap-3 p-3.5 rounded-xl bg-card border border-border shadow-sm cursor-default"
+              className="group flex items-start gap-2.5 px-3 py-2.5 rounded-lg bg-card border border-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default"
+              style={{
+                transitionDelay: isVisible ? `${i * 80}ms` : "0ms",
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(12px)",
+              }}
             >
-              <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors duration-300">
-                <exp.icon size={16} className="text-foreground group-hover:text-accent transition-colors duration-300" />
+              <div className="w-7 h-7 rounded-md bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors duration-300">
+                <exp.icon size={14} className="text-foreground group-hover:text-primary transition-colors duration-300" />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-[13px] font-semibold text-foreground leading-tight">{exp.title}</h3>
-                <p className="text-muted-foreground text-xs mt-0.5 leading-snug">{exp.detail}</p>
+                <h3 className="text-xs font-semibold text-foreground leading-tight">
+                  {exp.title}
+                </h3>
+                <p className="text-muted-foreground text-[11px] mt-0.5 leading-snug">
+                  {exp.detail}
+                </p>
               </div>
             </div>
           ))}

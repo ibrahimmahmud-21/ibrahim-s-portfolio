@@ -6,9 +6,14 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-[90vh] flex items-center justify-center px-6 py-20 md:py-28 bg-secondary/30">
-      <div ref={ref} className={`max-w-3xl mx-auto text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+      <div
+        ref={ref}
+        className={`max-w-3xl mx-auto text-center transition-all duration-700 ease-out ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
         {/* Profile Image */}
-        <div className="stagger-child w-20 h-20 sm:w-24 sm:h-24 md:w-[132px] md:h-[132px] rounded-full overflow-hidden shadow-elevated mx-auto mb-8 profile-pulse ring-4 ring-background">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-[132px] md:h-[132px] rounded-full overflow-hidden shadow-elevated mx-auto mb-8 profile-pulse ring-4 ring-background">
           <img
             id="profileImage"
             src={profileImage}
@@ -19,12 +24,12 @@ const HeroSection = () => {
         </div>
 
         {/* Intro */}
-        <p className="stagger-child text-base sm:text-lg font-medium text-foreground mb-6">
+        <p className="text-base sm:text-lg font-medium text-foreground mb-6">
           Hi, I'm Ibrahim ✌️
         </p>
 
         {/* Bold Headline */}
-        <h1 className="stagger-child text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.12] tracking-tight text-foreground mb-8">
+        <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.12] tracking-tight text-foreground mb-8">
           Helping people solve
           <br />
           tech problems and build
@@ -33,7 +38,7 @@ const HeroSection = () => {
         </h1>
 
         {/* Description */}
-        <p className="stagger-child text-muted-foreground text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-10">
+        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-10">
           I am a <span className="font-semibold text-foreground">Mobile Settings Expert</span> and{" "}
           <span className="font-semibold text-foreground">Facebook Problem Solver</span>.
           <br className="hidden sm:block" />
@@ -43,7 +48,7 @@ const HeroSection = () => {
         </p>
 
         {/* CTA Button */}
-        <div className="stagger-child">
+        <div>
           <a
             href="#contact"
             className="btn-press inline-flex items-center px-10 py-4 rounded-full bg-primary text-primary-foreground text-sm sm:text-base font-semibold tracking-wide uppercase shadow-elevated hover:shadow-soft transition-all duration-300 hover:scale-105"
