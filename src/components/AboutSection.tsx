@@ -1,7 +1,7 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const AboutSection = () => {
-  const { ref, className } = useScrollAnimation();
+  const { ref, className } = useScrollAnimation(0.05);
 
   return (
     <section id="about" className="py-24 md:py-32 px-6 sm:px-10 lg:px-20 bg-secondary/40">
