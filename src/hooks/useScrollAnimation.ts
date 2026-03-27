@@ -3,14 +3,10 @@ import { useEffect, useRef, useState } from "react";
 export function useScrollAnimation(threshold = 0.05) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [animateReady, setAnimateReady] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    // Mark as ready for animation after mount
-    setAnimateReady(true);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -19,13 +15,13 @@ export function useScrollAnimation(threshold = 0.05) {
           observer.unobserve(el);
         }
       },
-      { threshold, rootMargin: "0px 0px 50px 0px" }
+      { threshold, rootMargin: "0px 0px 80px 0px" }
     );
 
     observer.observe(el);
 
-    // Fallback: if not visible after 1.2s, force show
-    const fallback = setTimeout(() => setIsVisible(true), 1200);
+    // Fallback: force show after 800ms
+    const fallback = setTimeout(() => setIsVisible(true), 800);
 
     return () => {
       observer.disconnect();
@@ -33,7 +29,11 @@ export function useScrollAnimation(threshold = 0.05) {
     };
   }, [threshold]);
 
-  const className = `scroll-fade${animateReady ? " animate-ready" : ""}${isVisible ? " visible" : ""}`;
+  const style: React.CSSProperties = {
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateY(0)" : "translateY(24px)",
+    transition: "opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
+  };
 
-  return { ref, isVisible, className };
+  return { ref, isVisible, style };
 }
