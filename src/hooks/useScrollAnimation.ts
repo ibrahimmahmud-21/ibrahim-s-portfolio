@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export function useScrollAnimation(threshold = 0.15) {
+export function useScrollAnimation(threshold = 0.05) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [animateReady, setAnimateReady] = useState(false);
@@ -9,7 +9,7 @@ export function useScrollAnimation(threshold = 0.15) {
     const el = ref.current;
     if (!el) return;
 
-    // Mark as ready for animation after mount — content stays visible if JS/observer fails
+    // Mark as ready for animation after mount
     setAnimateReady(true);
 
     const observer = new IntersectionObserver(
@@ -19,13 +19,13 @@ export function useScrollAnimation(threshold = 0.15) {
           observer.unobserve(el);
         }
       },
-      { threshold }
+      { threshold, rootMargin: "0px 0px 50px 0px" }
     );
 
     observer.observe(el);
 
-    // Fallback: if not visible after 1.5s, force show
-    const fallback = setTimeout(() => setIsVisible(true), 1500);
+    // Fallback: if not visible after 1.2s, force show
+    const fallback = setTimeout(() => setIsVisible(true), 1200);
 
     return () => {
       observer.disconnect();
