@@ -6,7 +6,18 @@ export function useScrollAnimation(threshold = 0.05) {
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el) {
+      // No element — just show immediately
+      setIsVisible(true);
+      return;
+    }
+
+    // Check if element is already in viewport on mount
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -15,13 +26,13 @@ export function useScrollAnimation(threshold = 0.05) {
           observer.unobserve(el);
         }
       },
-      { threshold, rootMargin: "0px 0px 80px 0px" }
+      { threshold, rootMargin: "0px 0px 100px 0px" }
     );
 
     observer.observe(el);
 
-    // Fallback: force show after 800ms
-    const fallback = setTimeout(() => setIsVisible(true), 800);
+    // Fallback: force show after 1s no matter what
+    const fallback = setTimeout(() => setIsVisible(true), 1000);
 
     return () => {
       observer.disconnect();
@@ -29,11 +40,5 @@ export function useScrollAnimation(threshold = 0.05) {
     };
   }, [threshold]);
 
-  const style: React.CSSProperties = {
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? "translateY(0)" : "translateY(24px)",
-    transition: "opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
-  };
-
-  return { ref, isVisible, style };
+  return { ref, isVisible };
 }

@@ -4,13 +4,15 @@ const AboutSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.05);
 
   return (
-    <section id="about" className="py-24 md:py-32 px-6 sm:px-10 lg:px-20 bg-secondary/40">
+    <section id="about" className="py-20 md:py-28 px-6 sm:px-10 lg:px-20 bg-secondary/40">
       <div
         ref={ref}
-        className={`max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-start transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        className={`max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-start transition-all duration-700 ease-out ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
       >
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">About me</h2>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-foreground">About me</h2>
         </div>
         <div>
           <p className="text-muted-foreground leading-7 text-[15px]">
