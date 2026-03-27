@@ -24,22 +24,22 @@ const HeroSection = () => {
         </p>
 
         {/* Bold Headline */}
-        <h1 className="stagger-child text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-foreground mb-8">
-          Building digital
+        <h1 className="stagger-child text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.12] tracking-tight text-foreground mb-8">
+          Helping people solve
           <br />
-          products, brands, and
+          tech problems and build
           <br />
-          experience.
+          smart solutions.
         </h1>
 
         {/* Description */}
-        <p className="stagger-child text-muted-foreground text-sm sm:text-base leading-relaxed max-w-lg mx-auto mb-10">
-          a <span className="font-semibold text-foreground">Tech Enthusiast</span> and{" "}
-          <span className="font-semibold text-foreground">Digital Creator</span> in Bangladesh.
-          <br />
-          I specialize in Web Development, UI/UX Design,
+        <p className="stagger-child text-muted-foreground text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-10">
+          I am a <span className="font-semibold text-foreground">Mobile Settings Expert</span> and{" "}
+          <span className="font-semibold text-foreground">Facebook Problem Solver</span>.
           <br className="hidden sm:block" />
-          and Digital Product Development.
+          I help people fix account issues, improve device performance,
+          <br className="hidden sm:block" />
+          and learn modern web development.
         </p>
 
         {/* CTA Button */}
