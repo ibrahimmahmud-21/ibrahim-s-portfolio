@@ -25,11 +25,11 @@ const experiences = [
 ];
 
 const ExperienceSection = () => {
-  const { ref, className } = useScrollAnimation();
+  const { ref, style } = useScrollAnimation(0.05);
 
   return (
     <section id="experience" className="py-24 md:py-32 px-6 sm:px-10 lg:px-20">
-      <div ref={ref} className={`max-w-6xl mx-auto ${className}`}>
+      <div ref={ref} style={style} className="max-w-6xl mx-auto">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-10">
           Working experience
         </h2>
@@ -37,7 +37,7 @@ const ExperienceSection = () => {
           {experiences.map((exp) => (
             <div
               key={exp.title}
-              className="stagger-child card-lift group flex items-start gap-3 p-4 rounded-xl bg-card border border-border cursor-default"
+              className="stagger-child card-lift group flex items-start gap-3 p-3.5 rounded-xl bg-card border border-border shadow-sm cursor-default"
             >
               <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors duration-300">
                 <exp.icon size={16} className="text-foreground group-hover:text-accent transition-colors duration-300" />

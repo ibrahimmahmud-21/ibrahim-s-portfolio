@@ -9,11 +9,11 @@ const interests = [
 ];
 
 const InterestsSection = () => {
-  const { ref, className } = useScrollAnimation();
+  const { ref, style } = useScrollAnimation();
 
   return (
     <section id="interests" className="py-24 md:py-32 px-6 sm:px-10 lg:px-20 bg-secondary/40">
-      <div ref={ref} className={`max-w-6xl mx-auto ${className}`}>
+      <div ref={ref} style={style} className="max-w-6xl mx-auto">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-14">
           Interests
         </h2>
