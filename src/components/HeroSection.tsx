@@ -2,11 +2,11 @@ import profileImage from "@/assets/profile.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const HeroSection = () => {
-  const { ref, style } = useScrollAnimation(0.1);
+  const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
     <section id="home" className="min-h-[90vh] flex items-center justify-center px-6 py-20 md:py-28 bg-secondary/30">
-      <div ref={ref} style={style} className="max-w-3xl mx-auto text-center">
+      <div ref={ref} className={`max-w-3xl mx-auto text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
         {/* Profile Image */}
         <div className="stagger-child w-20 h-20 sm:w-24 sm:h-24 md:w-[132px] md:h-[132px] rounded-full overflow-hidden shadow-elevated mx-auto mb-8 profile-pulse ring-4 ring-background">
           <img

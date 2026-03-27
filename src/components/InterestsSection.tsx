@@ -9,11 +9,11 @@ const interests = [
 ];
 
 const InterestsSection = () => {
-  const { ref, style } = useScrollAnimation();
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
     <section id="interests" className="py-24 md:py-32 px-6 sm:px-10 lg:px-20 bg-secondary/40">
-      <div ref={ref} style={style} className="max-w-6xl mx-auto">
+      <div ref={ref} className={`max-w-6xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-14">
           Interests
         </h2>

@@ -2,14 +2,13 @@ import { Mail, ExternalLink } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ContactSection = () => {
-  const { ref, style } = useScrollAnimation();
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
     <section id="contact" className="py-20 md:py-28 px-6 sm:px-10 lg:px-20">
       <div
         ref={ref}
-        style={style}
-        className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+        className={`max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
       >
         <div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">Get in touch</h2>
